@@ -1,8 +1,3 @@
-/* ==========================================================
-   script.js - Funciones auxiliares de manipulación del DOM
-   Taller #4 Programación Web I
-   ========================================================== */
-
 function crearElemento(tag) {
     let nodo = document.createElement(tag)
     return nodo
@@ -29,25 +24,34 @@ function adicionarElementoABody(elemento) {
     document.body.appendChild(elemento)
 }
 
-/* Crea una línea "Etiqueta: valor" reutilizable en el detalle */
-function crearFilaDato(etiqueta, valor) {
-    let fila = crearElemento('p')
-    fila.classList.add('letraGeneral')
 
-    let etiquetaTexto = crearElemento('span')
-    etiquetaTexto.textContent = etiqueta + ': '
+function crearCajaDato(etiqueta, valor, conEstrella) {
+    let caja = crearElemento('div')
+    caja.classList.add('cajaDato')
 
-    let valorTexto = crearElemento('span')
-    valorTexto.textContent = valor
-    valorTexto.style.color = '#101828'
-    valorTexto.style.fontWeight = 'bold'
+    let pEtiqueta = crearNodoConTexto('p', etiqueta)
+    pEtiqueta.classList.add('etiquetaDato')
 
-    adicionarElementoAContenedor(etiquetaTexto, fila)
-    adicionarElementoAContenedor(valorTexto, fila)
-    return fila
+    let pValor = crearNodoConTexto('p', valor)
+    pValor.classList.add('valorDato')
+
+    if (conEstrella) {
+        pValor.textContent = ''
+        let estrella = crearElemento('span')
+        estrella.classList.add('estrellaDato')
+        estrella.textContent = '★ '
+        let numero = crearElemento('span')
+        numero.textContent = valor
+        adicionarElementoAContenedor(estrella, pValor)
+        adicionarElementoAContenedor(numero, pValor)
+    }
+
+    adicionarElementoAContenedor(pEtiqueta, caja)
+    adicionarElementoAContenedor(pValor, caja)
+    return caja
 }
 
-/* Formatea el precio con separador de miles, ej: 1899.99 -> 1,899.99 */
+
 function formatearPrecio(valor) {
     return Number(valor).toLocaleString('en-US', {
         minimumFractionDigits: 2,

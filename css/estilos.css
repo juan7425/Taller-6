@@ -27,7 +27,7 @@ p {
     margin-bottom: 0px;
 }
 
-/* ---------- Encabezado ---------- */
+/*Encabezado*/
 .encabezado {
     background-color: var(--colorEncabezado);
     padding: 26px 40px;
@@ -53,7 +53,7 @@ p {
     padding-top: 4px;
 }
 
-/* ---------- Contenido principal ---------- */
+/* Contenido principal */
 .contenidoPrincipal {
     max-width: 1180px;
     margin: 0 auto;
@@ -91,7 +91,7 @@ p {
     border-color: var(--colorEncabezado);
 }
 
-/* ---------- Mensajes ---------- */
+/* Mensajes */
 .mensajeCarga {
     color: var(--colorTextoSuave);
     font-size: 17px;
@@ -119,14 +119,14 @@ p {
     display: none;
 }
 
-/* ---------- Cuadrícula del catálogo ---------- */
+/*Cuadrícula del catálogo*/
 .gridContainer {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
     gap: 22px;
 }
 
-/* ---------- Tarjeta de producto ---------- */
+/*Tarjeta de producto */
 .tarjetaProducto {
     background-color: var(--colorTarjeta);
     border: 1px solid var(--colorBorde);
@@ -210,28 +210,49 @@ p {
     background-color: #2c3c55;
 }
 
-/* ---------- Página de detalle ---------- */
-.contenedorDetalle {
+/* Página de detalles */
+.enlaceRegresar {
+    display: inline-block;
+    color: var(--colorTitulo);
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.enlaceRegresar:hover {
+    text-decoration: underline;
+}
+
+.tarjetaDetalle {
     display: flex;
-    flex-wrap: wrap;
-    gap: 35px;
     background-color: var(--colorTarjeta);
     border: 1px solid var(--colorBorde);
-    border-radius: 10px;
-    padding: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.cajaImagenDetalle {
+    flex: 4;
+    background-color: #f7f7f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    min-width: 0;
 }
 
 .imagenDetalle {
-    width: 330px;
-    height: 330px;
+    width: 100%;
+    max-width: 420px;
+    height: 370px;
     object-fit: contain;
-    background-color: #fafafa;
-    border-radius: 8px;
 }
 
 .infoDetalle {
-    flex: 1;
-    min-width: 280px;
+    flex: 5;
+    min-width: 0;
+    padding: 40px 35px;
 }
 
 .categoriaDetalle {
@@ -240,66 +261,55 @@ p {
     font-weight: bold;
     letter-spacing: 1px;
     text-transform: uppercase;
-    padding-bottom: 6px;
+    padding-bottom: 8px;
 }
 
 .tituloDetalle {
     color: var(--colorTitulo);
-    font-size: 28px;
+    font-size: 30px;
     font-weight: bold;
-    padding-bottom: 10px;
+    padding-bottom: 14px;
 }
 
 .precioDetalle {
     color: var(--colorTitulo);
-    font-size: 30px;
+    font-size: 32px;
     font-weight: bold;
-}
-
-.filaCalificacion {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 0 12px 0;
-}
-
-.estrellaDetalle {
-    color: var(--colorEstrella);
-    font-size: 18px;
-}
-
-.valorCalificacion {
-    color: var(--colorTextoSuave);
-    font-size: 15px;
-    font-weight: bold;
+    padding-bottom: 16px;
 }
 
 .descripcionDetalle {
-    color: #475467;
+    color: #667085;
     font-size: 15px;
-    line-height: 22px;
-    padding: 14px 0;
-    border-top: 1px solid var(--colorBorde);
-    margin-top: 12px;
+    line-height: 24px;
+    padding-bottom: 26px;
 }
 
-.contenedorRegresar {
-    text-align: center;
-    padding: 30px 0 10px 0;
+.gridDatos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
 }
 
-.botonRegresar {
-    display: inline-block;
-    background-color: var(--colorBoton);
-    color: #ffffff;
-    text-decoration: none;
+.cajaDato {
+    background-color: #f7f8fa;
+    border-radius: 8px;
+    padding: 12px 14px;
+}
+
+.etiquetaDato {
+    color: #98a2b3;
+    font-size: 12.5px;
+    padding-bottom: 5px;
+}
+
+.valorDato {
+    color: var(--colorTitulo);
     font-size: 15px;
     font-weight: bold;
-    padding: 11px 26px;
-    border-radius: 6px;
 }
 
-.botonRegresar:hover {
-    background-color: #2c3c55;
+.estrellaDato {
+    color: var(--colorEstrella);
 }
 

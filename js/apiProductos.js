@@ -1,10 +1,9 @@
-
 const urlAPI = 'https://dummyjson.com'
 
-/* Guarda la lista completa para poder filtrarla con el buscador */
+
 let listaProductos = []
 
-/* RF1: catálogo*/
+/*  RF1: catálogo  */
 async function cargarProductos() {
     let contenedor = document.getElementById('contenedorProductos')
 
@@ -48,7 +47,6 @@ function crearTarjetaProducto(producto) {
     let tarjeta = crearElemento('div')
     tarjeta.classList.add('tarjetaProducto')
 
-    /* Clic sobre la tarjeta: abre el detalle con el id real */
     tarjeta.addEventListener('click', function () {
         window.location.href = 'producto.html?id=' + producto.id
     })
@@ -89,7 +87,7 @@ function crearTarjetaProducto(producto) {
     return tarjeta
 }
 
-/*Buscador del catálogo*/
+/* -------------------- Buscador del catálogo -------------------- */
 function activarBuscador() {
     let input = document.getElementById('inputBuscar')
     if (!input) {
@@ -118,7 +116,7 @@ function activarBuscador() {
     })
 }
 
-/*RF2: detalle*/
+/* -------------------- RF2: detalle -------------------- */
 async function cargarDetalleProducto(idProducto) {
 
     if (idProducto === null || idProducto === '' || isNaN(Number(idProducto))) {
@@ -155,14 +153,27 @@ async function cargarDetalleProducto(idProducto) {
 
 function mostrarDetalleProducto(producto) {
     let contenedor = document.getElementById('contenedorDetalle')
+    contenedor.innerHTML = ''
 
-    let caja = crearElemento('div')
-    caja.classList.add('contenedorDetalle')
+    /* Enlace de regreso, arriba y a la izquierda */
+    let enlaceRegresar = crearNodoConTexto('a', '← Volver al catálogo')
+    enlaceRegresar.href = 'index.html'
+    enlaceRegresar.classList.add('enlaceRegresar')
+    adicionarElementoAContenedor(enlaceRegresar, contenedor)
+
+    let tarjeta = crearElemento('div')
+    tarjeta.classList.add('tarjetaDetalle')
+
+    /* Mitad izquierda: imagen */
+    let cajaImagen = crearElemento('div')
+    cajaImagen.classList.add('cajaImagenDetalle')
 
     let imagen = crearImagen(producto.thumbnail, producto.title)
     imagen.classList.add('imagenDetalle')
-    adicionarElementoAContenedor(imagen, caja)
+    adicionarElementoAContenedor(imagen, cajaImagen)
+    adicionarElementoAContenedor(cajaImagen, tarjeta)
 
+    /* Mitad derecha: información */
     let info = crearElemento('div')
     info.classList.add('infoDetalle')
 
@@ -178,42 +189,21 @@ function mostrarDetalleProducto(producto) {
     precio.classList.add('precioDetalle')
     adicionarElementoAContenedor(precio, info)
 
-    let filaCalificacion = crearElemento('div')
-    filaCalificacion.classList.add('filaCalificacion')
-
-    let estrella = crearNodoConTexto('span', '★')
-    estrella.classList.add('estrellaDetalle')
-    adicionarElementoAContenedor(estrella, filaCalificacion)
-
-    let valorCalificacion = crearNodoConTexto('span', producto.rating + ' de 5')
-    valorCalificacion.classList.add('valorCalificacion')
-    adicionarElementoAContenedor(valorCalificacion, filaCalificacion)
-
-    adicionarElementoAContenedor(filaCalificacion, info)
-
-    let marca = producto.brand ? producto.brand : 'Sin marca'
-
-    adicionarElementoAContenedor(crearFilaDato('Marca', marca), info)
-    adicionarElementoAContenedor(crearFilaDato('Stock disponible', producto.stock), info)
-    adicionarElementoAContenedor(crearFilaDato('Descuento', producto.discountPercentage + ' %'), info)
-
     let descripcion = crearNodoConTexto('p', producto.description)
     descripcion.classList.add('descripcionDetalle')
     adicionarElementoAContenedor(descripcion, info)
 
-    adicionarElementoAContenedor(info, caja)
+    let marca = producto.brand ? producto.brand : 'Sin marca'
 
-    contenedor.innerHTML = ''
-    adicionarElementoAContenedor(caja, contenedor)
+    let gridDatos = crearElemento('div')
+    gridDatos.classList.add('gridDatos')
 
-    /* Opción visible para regresar al catálogo */
-    let contenedorRegresar = crearElemento('div')
-    contenedorRegresar.classList.add('contenedorRegresar')
+    adicionarElementoAContenedor(crearCajaDato('Calificación', producto.rating, true), gridDatos)
+    adicionarElementoAContenedor(crearCajaDato('Stock', producto.stock), gridDatos)
+    adicionarElementoAContenedor(crearCajaDato('Marca', marca), gridDatos)
+    adicionarElementoAContenedor(crearCajaDato('Descuento', producto.discountPercentage + '%'), gridDatos)
 
-    let enlaceRegresar = crearNodoConTexto('a', 'Regresar al catálogo')
-    enlaceRegresar.href = 'index.html'
-    enlaceRegresar.classList.add('botonRegresar')
-
-    adicionarElementoAContenedor(enlaceRegresar, contenedorRegresar)
-    adicionarElementoAContenedor(contenedorRegresar, contenedor)
+    adicionarElementoAContenedor(gridDatos, info)
+    adicionarElementoAContenedor(info, tarjeta)
+    adicionarElementoAContenedor(tarjeta, contenedor)
 }
