@@ -1,0 +1,305 @@
+/* estilos.css */
+:root {
+    --colorFondo: #f4f5f7;
+    --colorEncabezado: #1b2637;
+    --colorBoton: #1b2637;
+    --colorTarjeta: #ffffff;
+    --colorBorde: #e4e7ec;
+    --colorTitulo: #101828;
+    --colorTextoSuave: #8a94a6;
+    --colorEstrella: #f5a623;
+    --colorMarca: #cfae6a;
+    --colorError: #d14343;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--colorFondo);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* ---------- Encabezado ---------- */
+.encabezado {
+    background-color: var(--colorEncabezado);
+    padding: 26px 40px;
+}
+
+.marcaSitio {
+    color: var(--colorMarca);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.tituloEncabezado {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: bold;
+    padding-top: 4px;
+}
+
+.subtituloEncabezado {
+    color: #b6bfd0;
+    font-size: 14px;
+    padding-top: 4px;
+}
+
+/* ---------- Contenido principal ---------- */
+.contenidoPrincipal {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 30px 24px 60px 24px;
+}
+
+.filaSuperior {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.tituloSeccion {
+    color: var(--colorTitulo);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.inputBuscar {
+    width: 250px;
+    padding: 9px 12px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--colorTitulo);
+    background-color: var(--colorTarjeta);
+    border: 1px solid var(--colorBorde);
+    border-radius: 6px;
+}
+
+.inputBuscar:focus {
+    outline: none;
+    border-color: var(--colorEncabezado);
+}
+
+/* ---------- Mensajes ---------- */
+.mensajeCarga {
+    color: var(--colorTextoSuave);
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+.mensajeError {
+    color: var(--colorError);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 12px 10px;
+}
+
+.mensajeVacio {
+    color: var(--colorTextoSuave);
+    font-size: 16px;
+    text-align: center;
+    padding: 30px 10px;
+}
+
+.oculto {
+    display: none;
+}
+
+/* ---------- Cuadrícula del catálogo ---------- */
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+    gap: 22px;
+}
+
+/* ---------- Tarjeta de producto ---------- */
+.tarjetaProducto {
+    background-color: var(--colorTarjeta);
+    border: 1px solid var(--colorBorde);
+    border-radius: 10px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarjetaProducto:hover {
+    border-color: #c3cad6;
+}
+
+.imagenProducto {
+    width: 100%;
+    height: 170px;
+    object-fit: contain;
+    background-color: #fafafa;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.categoriaProducto {
+    color: var(--colorTextoSuave);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.letraTitulo {
+    color: var(--colorTitulo);
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 0 8px 0;
+}
+
+.filaPrecio {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 4px;
+}
+
+.precioProducto {
+    color: var(--colorTitulo);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.calificacionProducto {
+    color: var(--colorEstrella);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.letraGeneral {
+    color: var(--colorTextoSuave);
+    font-size: 13px;
+    padding-bottom: 10px;
+}
+
+.puntero {
+    cursor: pointer;
+}
+
+.botonVerDetalle {
+    margin-top: auto;
+    padding: 9px;
+    background-color: var(--colorBoton);
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+.botonVerDetalle:hover {
+    background-color: #2c3c55;
+}
+
+/* ---------- Página de detalle ---------- */
+.contenedorDetalle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+    background-color: var(--colorTarjeta);
+    border: 1px solid var(--colorBorde);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.imagenDetalle {
+    width: 330px;
+    height: 330px;
+    object-fit: contain;
+    background-color: #fafafa;
+    border-radius: 8px;
+}
+
+.infoDetalle {
+    flex: 1;
+    min-width: 280px;
+}
+
+.categoriaDetalle {
+    color: var(--colorTextoSuave);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-bottom: 6px;
+}
+
+.tituloDetalle {
+    color: var(--colorTitulo);
+    font-size: 28px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.precioDetalle {
+    color: var(--colorTitulo);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.filaCalificacion {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 0 12px 0;
+}
+
+.estrellaDetalle {
+    color: var(--colorEstrella);
+    font-size: 18px;
+}
+
+.valorCalificacion {
+    color: var(--colorTextoSuave);
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.descripcionDetalle {
+    color: #475467;
+    font-size: 15px;
+    line-height: 22px;
+    padding: 14px 0;
+    border-top: 1px solid var(--colorBorde);
+    margin-top: 12px;
+}
+
+.contenedorRegresar {
+    text-align: center;
+    padding: 30px 0 10px 0;
+}
+
+.botonRegresar {
+    display: inline-block;
+    background-color: var(--colorBoton);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 11px 26px;
+    border-radius: 6px;
+}
+
+.botonRegresar:hover {
+    background-color: #2c3c55;
+}
+

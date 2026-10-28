@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <div class="encabezado">
+        <p class="marcaSitio">SHOP API</p>
+        <p class="tituloEncabezado">Catálogo de productos</p>
+        <p class="subtituloEncabezado">Selecciona un producto para consultar su información</p>
+    </div>
+
+    <div class="contenidoPrincipal">
+
+        <div class="filaSuperior">
+            <p class="tituloSeccion">Productos disponibles</p>
+            <input type="text" id="inputBuscar" class="inputBuscar" placeholder="Buscar productos...">
+        </div>
+
+        <p id="mensajeCarga" class="mensajeCarga">Cargando productos...</p>
+        <p id="mensajeError" class="mensajeError"></p>
+        <p id="mensajeVacio" class="mensajeVacio oculto"></p>
+
+        <div class="gridContainer" id="contenedorProductos"></div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/apiProductos.js"></script>
+
+    <script>
+        cargarProductos()
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <div class="encabezado">
+        <p class="marcaSitio">SHOP API</p>
+        <p class="tituloEncabezado">Detalle del producto</p>
+        <p class="subtituloEncabezado">Información completa del producto seleccionado</p>
+    </div>
+
+    <div class="contenidoPrincipal">
+
+        <p id="mensajeCarga" class="mensajeCarga">Cargando información del producto...</p>
+        <p id="mensajeError" class="mensajeError"></p>
+
+        <div id="contenedorDetalle"></div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/apiProductos.js"></script>
+
+    <script>
+        let parametros = new URLSearchParams(window.location.search)
+        let idProducto = parametros.get('id')
+        cargarDetalleProducto(idProducto)
+    </script>
+
+</body>
+</html>
